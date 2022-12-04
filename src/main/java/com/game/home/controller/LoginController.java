@@ -33,7 +33,6 @@ public class LoginController {
     }
 
     @PostMapping
-    @ResponseBody
     public ResponseEntity<Message> login(Member member) {
 
         HttpHeaders header = new HttpHeaders();
@@ -41,7 +40,6 @@ public class LoginController {
         MessageWrapper messageWrapper = loginService.getHttpMessage(member);
         ResponseEntity<Message> responseEntity = new ResponseEntity<Message>(new Message(messageWrapper.getMessage()), header, messageWrapper.getHttpStatus());
         return responseEntity;
-
     }
 
 
