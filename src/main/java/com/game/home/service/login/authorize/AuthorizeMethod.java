@@ -6,4 +6,5 @@ import com.game.home.service.login.message.MessageEnum;
 public interface AuthorizeMethod {
 
     MessageEnum authorize(Member member);
+
 }

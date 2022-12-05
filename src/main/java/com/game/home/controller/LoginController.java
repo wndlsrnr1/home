@@ -4,6 +4,7 @@ import com.game.home.data.member.Member;
 import com.game.home.data.status.Message;
 import com.game.home.data.status.MessageWrapper;
 import com.game.home.service.login.LoginServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/login")
+@Slf4j
 public class LoginController {
 
     private final LoginServiceImpl loginService;
@@ -34,7 +36,7 @@ public class LoginController {
 
     @PostMapping
     public ResponseEntity<Message> login(Member member) {
-
+        log.info("member = {} ", member);
         HttpHeaders header = new HttpHeaders();
         header.setContentType(new MediaType("application", "json"));
         MessageWrapper messageWrapper = loginService.getHttpMessage(member);

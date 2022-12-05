@@ -7,6 +7,7 @@ public enum MessageEnum {
     INVALID_ID(HttpStatus.UNAUTHORIZED, false, "형식에 맞지 않는 아이디입니다."),
     INVALID_EMAIL(HttpStatus.UNAUTHORIZED, false, "형식에 맞지 않는 이메일입니다."),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, false, "아이디 또는 비밀번호가 다릅니다."),
+    VALID_SEQUENCE(null, true, null),
     LOGIN_SUCCESS(HttpStatus.OK, true, "로그인 성공");
 
     private HttpStatus httpStatus;

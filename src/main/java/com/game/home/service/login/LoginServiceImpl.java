@@ -19,12 +19,16 @@ public class LoginServiceImpl {
 
     public MessageWrapper getHttpMessage(Member member) {
 
-        for (String key : authorizeMethods.keySet()) {
-            MessageEnum result = authorizeMethods.get(key).authorize(member);
-            if (!result.isAccept()){
-                return new MessageWrapper(result.getHttpStatus(), result.getMessage(), null);
-            }
+        MessageEnum result = authorizeMethods.get("authorizeValidIdSequence").authorize(member);
+        if (!result.isAccept()){
+            return new MessageWrapper(result.getHttpStatus(), result.getMessage(), null);
         }
+
+        MessageEnum result2 = authorizeMethods.get("authorizeIdAndPassword").authorize(member);
+        if (!result2.isAccept()){
+            return new MessageWrapper(result2.getHttpStatus(), result2.getMessage(), null);
+        }
+
 
         // 성공일때
         MessageEnum loginSuccess = MessageEnum.LOGIN_SUCCESS;

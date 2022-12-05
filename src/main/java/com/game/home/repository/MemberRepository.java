@@ -1,7 +1,6 @@
 package com.game.home.repository;
 
 import com.game.home.data.member.Member;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,4 +17,5 @@ public interface MemberRepository {
 
     boolean isAlreadyId();
 
+    Member findByIdAndPassword(String id, String password);
 }
