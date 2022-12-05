@@ -6,8 +6,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AuthorizeValidEmailSequence implements AuthorizeMethod{
+
     @Override
     public MessageEnum authorize(Member member) {
         return null;
     }
+
 }
